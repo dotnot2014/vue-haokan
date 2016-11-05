@@ -1,7 +1,7 @@
 <template>
   <div class="world">
     <div>
-      <span class="bg-primary">{{msg}}</span>
+      <span class="bg-primary"><i class="china flag"> </i> {{msg}}</span>
       <div class="ui horizontal divider">组件区</div>
       <div class="ui {{stat}} animated button" tabindex="0" @click="getdata">
         <div class="visible content">数据载入</div>
@@ -28,45 +28,44 @@
               <div class="ui sub header">Eve</div>Project Manager </div>
           </div>
         </div>
-      <div class="ui horizontal divider">{{loading}}</div>
-    </div>
-    <div class="content1">
-      <ul>
-        <li v-for="item in articles">
-          <div class="ui card">
-            <div class="content">
-              <span class="right floated meta">
-                <i class="mail icon"></i> 30
+        <div class="ui horizontal divider">{{loading}}</div>
+      </div>
+      <div class="content1">
+        <ul>
+          <li v-for="item in articles">
+            <div class="ui card">
+              <div class="content">
+                <span class="right floated meta">
+                <i class="time icon"></i> {{ item.postTime }}
               </span>
-              <span class="left floated meta">
-                        <img class="ui avatar image" src="../../static/molly.png"> Elliot
-                        <i class="china flag"></i>
+                <span class="left floated meta">
+                        <img class="ui avatar image" src="../../static/molly.png"> {{ item.author }}
                     </span>
-            </div>
-            <div class="image setheight">
-              <img :src="item.coverUrl">
-            </div>
-            <div class="content">
-              <span class="right floated">
+              </div>
+              <div class="image setheight">
+                <img :src="item.coverUrl">
+              </div>
+              <div class="extra content left h-l">
+                <div class="ui large">
+                  <i class="wechat icon"></i>
+                  <a class="astyle" href="{{ item.articleUrl }}">{{ item.title }}</a>
+                </div>
+              </div>
+              <div class="extra content h-s">
+                <span class="right floated">
                       <i class="heart outline like icon"></i>
                       17 likes
-                    </span>
-              <span class="left floated">
+                </span>
+                <span class="left floated">
                       <i class="comment icon"></i>
                       3 comments
-                    </span>
-            </div>
-            <div class="extra content left">
-              <div class="ui large">
-                <i class="heart outline icon"></i> 
-                <a href="{{ item.articleUrl }}">{{ item.title }}</a>
+                </span>
               </div>
             </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
 </template>
 <script>
 import reqwest from "reqwest"
@@ -169,9 +168,12 @@ export default {
     padding-top: 15px;
   }
   
-  a {
-    color: white;
-    text-decoration: none;
+  .ui.card>.extra a:not(.ui):hover {
+    color: #333;
+  }
+  
+  .ui.card>.extra a {
+    color: #666;
   }
   
   .span2 {
@@ -238,5 +240,18 @@ export default {
     width: 100%;
     height: 290px;
     border-radius: inherit;
+  }
+  
+  .h-s {
+    height: 30px;
+  }
+  
+  .ui.card>.extra {
+    padding: .3em 1em;
+  }
+  
+  .ui.card>.extra.h-l {
+    height: 50px;
+    padding-top: 1em;
   }
 </style>
