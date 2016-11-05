@@ -58,7 +58,7 @@
                 </span>
                 <span class="left floated">
                       <i class="comment icon"></i>
-                      3 comments
+                      6 comments
                 </span>
               </div>
             </div>
