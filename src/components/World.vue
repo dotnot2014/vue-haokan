@@ -2,16 +2,24 @@
   <div class="world">
     <div>
       <span class="bg-primary">{{msg}}</span>
+
+
       <div class="ui horizontal divider">组件区</div>
-      <button class="ui button" @click="getdata">数据载入</button>
+      <!--<button class="ui button" @click="getdata">数据载入</button>-->
+      <div class="ui {{stat}} animated button" tabindex="0" @click="getdata">
+        <div class="visible content">数据载入</div>
+        <div class="hidden content">
+          <i class="right play icon"></i>
+        </div>
+      </div>
       <br>
       <div class="ui center aligned basic segment">
-        <div class="ui left icon action input">
+        <!--<div class="ui left icon action input">
           <i class="search icon"></i>
           <input type="text" placeholder="Order #">
           <div class="ui blue submit button">搜索</div>
-        </div>
-        <br><br>
+        </div>-->
+        <!--<br><br>-->
         <div class="ui horizontal list">
           <div class="item">
             <img class="ui mini circular image" src="../../static/molly.png">
@@ -30,12 +38,15 @@
           </div>
         </div>
       </div>
-      <br>
-      <div class="ui label"><i class="mail icon"></i> 23 </div><br><br>
-      <a class="ui image label"><img src="../../static/molly.png"> Joe </a>
+      <!--<br>-->
+      <!--<a class="ui image label"><img src="../../static/molly.png"> Joe </a>
       <a class="ui image label"><img src="../../static/molly.png"> Elliot </a>
       <a class="ui image label"><img src="../../static/molly.png"> Stevie </a>
-      <br>
+      <button class="circular ui icon button">
+        <i class="icon settings"></i>
+      </button>-->
+
+      <!--<br>
       <br>
       <br>
       <div class="ui steps">
@@ -59,8 +70,8 @@
             <div class="title">Confirm Order</div>
           </div>
         </div>
-      </div>
-      <div class="ui horizontal divider">数据区</div>
+      </div>-->
+      <div class="ui horizontal divider">{{loading}}</div>
       <!--<div class="ui divider"></div>-->
     </div>
     <div class="content1">
@@ -68,9 +79,12 @@
         <li v-for="item in articles">
           <div class="ui card">
             <div class="content">
-              <span class="right floated meta">14h</span>
+              <span class="right floated meta">
+                <i class="mail icon"></i> 23
+              </span>
               <span class="left floated meta">
                         <img class="ui avatar image" src="../../static/molly.png"> Elliot
+                        <i class="china flag"></i>
                     </span>
             </div>
             <div class="image setheight">
@@ -87,20 +101,17 @@
                     </span>
             </div>
             <div class="extra content left">
-
               <div class="ui large">
-                <i class="heart outline icon"></i> {{ item.title }}
+                <i class="heart outline icon"></i> 
+                <a href="{{ item.articleUrl }}">{{ item.title }}</a>
               </div>
             </div>
           </div>
-
         </li>
       </ul>
     </div>
   </div>
 </template>
-
-
 <script>
 import reqwest from "reqwest"
 import { alert } from 'vue-strap'
@@ -115,6 +126,7 @@ export default {
   data () {
     return {
       msg: '这是semantic-ui样式的demo',
+      stat:'',
       articles: [
         {
           title:"这是文章标题列表",
@@ -124,13 +136,21 @@ export default {
           coverUrl:"../static/logo.png"
         }
       ],
-      loading:"这是vue-strap样式的demo"
+      loading:"数据展示区"
     }
   },
   methods: {
     getdata: function (e) {
       var that = this
       that.loading = '数据加载中...'
+      that.stat = 'loading'
+      setTimeout(function () {that.fetch()}, 1300)
+    },
+    click: function(){
+      console.log('点击按钮事件触发...')
+    },
+    fetch: function(){
+      var that = this
       reqwest({
         //url: "https://cnodejs.org/api/v1/topics",
         //url:"http://api.douban.com/v2/movie/top250",
@@ -143,21 +163,42 @@ export default {
           console.log(res)
           console.log("数据加载完毕...")
           that.loading = '华丽丽的分割线'
+          that.stat = ''
         },
         error(err) {
           console.log(err)
         }
       })
-    },
-    click: function(){
-      console.log('点击按钮事件触发...')
     }
   }
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  @media (max-width: 767px) {
+    .hidden-xs {
+      display: none !important;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    .hidden-sm {
+      display: none !important;
+    }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .hidden-md {
+      display: none !important;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .hidden-lg {
+      display: none !important;
+    }
+  }
+  
   .content1 {
     margin: 0 auto;
     width: 500px;
@@ -237,4 +278,12 @@ export default {
   .left {
     text-align: left;
   }
+  
+  .ui.card>.image>img {
+    display: block;
+    width: 100%;
+    height: 290px;
+    border-radius: inherit;
+  }
+
 </style>
