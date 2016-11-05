@@ -2,10 +2,7 @@
   <div class="world">
     <div>
       <span class="bg-primary">{{msg}}</span>
-
-
       <div class="ui horizontal divider">组件区</div>
-      <!--<button class="ui button" @click="getdata">数据载入</button>-->
       <div class="ui {{stat}} animated button" tabindex="0" @click="getdata">
         <div class="visible content">数据载入</div>
         <div class="hidden content">
@@ -14,17 +11,11 @@
       </div>
       <br>
       <div class="ui center aligned basic segment">
-        <!--<div class="ui left icon action input">
-          <i class="search icon"></i>
-          <input type="text" placeholder="Order #">
-          <div class="ui blue submit button">搜索</div>
-        </div>-->
-        <!--<br><br>-->
-        <div class="ui horizontal list">
+        <div class="ui horizontal list left">
           <div class="item">
             <img class="ui mini circular image" src="../../static/molly.png">
-            <div class="content">
-              <div class="ui sub header">Molly</div>Coordinator </div>
+            <div class="content ">
+              <div class="ui sub header ">Molly</div>Coordinator </div>
           </div>
           <div class="item">
             <img class="ui mini circular image" src="../../static/molly.png">
@@ -37,42 +28,7 @@
               <div class="ui sub header">Eve</div>Project Manager </div>
           </div>
         </div>
-      </div>
-      <!--<br>-->
-      <!--<a class="ui image label"><img src="../../static/molly.png"> Joe </a>
-      <a class="ui image label"><img src="../../static/molly.png"> Elliot </a>
-      <a class="ui image label"><img src="../../static/molly.png"> Stevie </a>
-      <button class="circular ui icon button">
-        <i class="icon settings"></i>
-      </button>-->
-
-      <!--<br>
-      <br>
-      <br>
-      <div class="ui steps">
-        <div class="step">
-          <i class="truck icon"></i>
-          <div class="content">
-            <div class="title">Shipping</div>
-            <div class="description">Choose your shipping options</div>
-          </div>
-        </div>
-        <div class="active step">
-          <i class="payment icon"></i>
-          <div class="content">
-            <div class="title">Billing</div>
-            <div class="description">Enter billing information</div>
-          </div>
-        </div>
-        <div class="disabled step">
-          <i class="info icon"></i>
-          <div class="content">
-            <div class="title">Confirm Order</div>
-          </div>
-        </div>
-      </div>-->
       <div class="ui horizontal divider">{{loading}}</div>
-      <!--<div class="ui divider"></div>-->
     </div>
     <div class="content1">
       <ul>
@@ -115,8 +71,6 @@
 <script>
 import reqwest from "reqwest"
 import { alert } from 'vue-strap'
-//import alert from 'vue-strap/src/Alert.vue'
-
 
 export default {
   name: 'world',
@@ -285,5 +239,4 @@ export default {
     height: 290px;
     border-radius: inherit;
   }
-
 </style>
