@@ -11,28 +11,57 @@
           <input type="text" placeholder="Order #">
           <div class="ui blue submit button">搜索</div>
         </div>
-      <br><br>
-      <div class="ui horizontal list">
-        <div class="item">
-          <img class="ui mini circular image" src="../../static/molly.png">
-          <div class="content">
-            <div class="ui sub header">Molly</div>Coordinator </div>
+        <br><br>
+        <div class="ui horizontal list">
+          <div class="item">
+            <img class="ui mini circular image" src="../../static/molly.png">
+            <div class="content">
+              <div class="ui sub header">Molly</div>Coordinator </div>
+          </div>
+          <div class="item">
+            <img class="ui mini circular image" src="../../static/molly.png">
+            <div class="content">
+              <div class="ui sub header">Elyse</div>Developer </div>
+          </div>
+          <div class="item">
+            <img src="../../static/molly.png" class="ui mini circular image">
+            <div class="content">
+              <div class="ui sub header">Eve</div>Project Manager </div>
+          </div>
         </div>
-        <div class="item">
-          <img class="ui mini circular image" src="../../static/molly.png">
-          <div class="content">
-            <div class="ui sub header">Elyse</div>Developer </div>
-        </div>
-        <div class="item">
-          <img src="../../static/molly.png" class="ui mini circular image">
-          <div class="content">
-            <div class="ui sub header">Eve</div>Project Manager </div>
-        </div>
-      </div>
       </div>
       <br>
-       <div class="ui horizontal divider">数据区</div>
-       <!--<div class="ui divider"></div>-->
+      <div class="ui label"><i class="mail icon"></i> 23 </div><br><br>
+      <a class="ui image label"><img src="../../static/molly.png"> Joe </a>
+      <a class="ui image label"><img src="../../static/molly.png"> Elliot </a>
+      <a class="ui image label"><img src="../../static/molly.png"> Stevie </a>
+      <br>
+      <br>
+      <br>
+      <div class="ui steps">
+        <div class="step">
+          <i class="truck icon"></i>
+          <div class="content">
+            <div class="title">Shipping</div>
+            <div class="description">Choose your shipping options</div>
+          </div>
+        </div>
+        <div class="active step">
+          <i class="payment icon"></i>
+          <div class="content">
+            <div class="title">Billing</div>
+            <div class="description">Enter billing information</div>
+          </div>
+        </div>
+        <div class="disabled step">
+          <i class="info icon"></i>
+          <div class="content">
+            <div class="title">Confirm Order</div>
+          </div>
+        </div>
+      </div>
+      <div class="ui horizontal divider">数据区</div>
+      <!--<div class="ui divider"></div>-->
     </div>
     <div class="content1">
       <ul>
