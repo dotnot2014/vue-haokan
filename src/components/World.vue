@@ -36,7 +36,7 @@
           <div class="ui card">
             <div class="content">
               <span class="right floated meta">
-                <i class="mail icon"></i> 123
+                <i class="mail icon"></i> 23
               </span>
               <span class="left floated meta">
                         <img class="ui avatar image" src="../../static/molly.png"> Elliot
