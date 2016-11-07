@@ -2,6 +2,12 @@
   <div class="world">
     <div>
       <span class="bg-primary"><i class="china flag"> </i> {{msg}}</span>
+      <br>
+      <div class="ui icon input">
+        <i class="search icon"></i>
+        <input v-model="searchtxt" type="text" placeholder="Search..." @keyup.enter="click">
+      </div>
+      <br><br>
       <div class="ui horizontal divider">组件区</div>
       <div class="ui {{stat}} animated button" tabindex="0" @click="getdata">
         <div class="visible content">数据载入</div>
@@ -9,6 +15,8 @@
           <i class="right play icon"></i>
         </div>
       </div>
+      <br><br>
+      <div class="ui info message setwidth">Well done! You successfully read this important alert message.</div>
       <br>
       <div class="ui center aligned basic segment">
         <div class="ui horizontal list left">
@@ -79,6 +87,8 @@ export default {
   data () {
     return {
       msg: '这是semantic-ui样式的demo',
+      tags:[],
+      searchtxt:'',
       stat:'',
       articles: [
         {
@@ -99,8 +109,11 @@ export default {
       that.stat = 'loading'
       setTimeout(function () {that.fetch()}, 1300)
     },
-    click: function(){
-      console.log('点击按钮事件触发...')
+    click: function(e){
+      var that = this
+      //that.tags = that.tags.concat(e.target.value)
+      that.searchtxt = ''
+      console.log(e.target.value)
     },
     fetch: function(){
       var that = this
@@ -253,5 +266,9 @@ export default {
   .ui.card>.extra.h-l {
     height: 50px;
     padding-top: 1em;
+  }
+  .setwidth{
+    width:450px;
+    margin:0 auto;
   }
 </style>
